@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Pressable, Image } from 'react-native';
 import { SafeAreaView } from 'react-native';
 import { useFonts, Poppins_400Regular, Poppins_600SemiBold, Poppins_500Medium } from '@expo-google-fonts/poppins';
+import { Link } from 'expo-router';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -37,7 +38,9 @@ export default function App() {
         />
         <Pressable style={styles.loginBtn}>
           <Text style={{color: '#fff',fontFamily: 'Poppins_500Medium', textAlign: 'center'}}>
-            Log In
+            <Link push href={'/home'}>
+              Log In
+            </Link>
           </Text>
         </Pressable>
         <View style={styles.dividersContainer}>
@@ -48,16 +51,16 @@ export default function App() {
       </View>
       <View style={styles.loginOptions}>
         <View style={styles.mediaIcon}>
-            <Image source={require('./assets/icons/flat-color-icons_google.png')} />
+            <Image source={require('../assets/icons/flat-color-icons_google.png')} />
         </View>
         <View style={styles.mediaIcon}>
-            <Image source={require('./assets/icons/ion_logo-facebook.png')} />
+            <Image source={require('../assets/icons/ion_logo-facebook.png')} />
         </View>
         <View style={styles.mediaIcon}>
-            <Image source={require('./assets/icons/cib_apple.png')} />
+            <Image source={require('../assets/icons/cib_apple.png')} />
         </View>
       </View>
-      <Text style={{marginTop: 20, color: '#AFB0B6', textAlign: 'center'}}>
+      <Text style={{marginTop: 10, color: '#AFB0B6', textAlign: 'center'}}>
         Haven’t an account? 
         <Text style={{color: '#356899'}}>
           Register
@@ -117,7 +120,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 30,
     alignSelf: 'center',
-    marginTop: 30,
+    marginTop: 20,
   },
   mediaIcon: {
     display: 'flex',
